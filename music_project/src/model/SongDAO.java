@@ -60,6 +60,7 @@ public class SongDAO {
 		}
 		return songs;
 	}
+	
     // 노래 이름으로 URL 업데이트 메서드
     public static boolean updateUrlBySongName(String songName, String url) throws SQLException {
         Connection con = null;
@@ -79,4 +80,35 @@ public class SongDAO {
         }
         return false;
     }
+	
+	public static ArrayList<SongDTO> getSongsByKeyword(String keyword) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<SongDTO> songs = null;
+		
+		try {
+			con = DBUtil.getConnection();
+			pstmt = con.prepareStatement("select *from song where song_name like ? or artist like ?;");
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
+			rset = pstmt.executeQuery();
+			
+			songs = new ArrayList<>();
+			while(rset.next()) {
+				songs.add(SongDTO.builder()
+						.songId(rset.getInt(1))
+						.artist(rset.getString(2))
+						.songName(rset.getString(3))
+						.genre(rset.getString(4))
+						.artType(rset.getBoolean(5))
+						.url(rset.getString(6)).build());
+			}
+		} finally {
+			DBUtil.close(con, pstmt, rset);;
+		}
+		return songs;
+		
+	}
+	
 }
