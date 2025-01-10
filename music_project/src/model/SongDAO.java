@@ -51,9 +51,12 @@ public class SongDAO {
             pstmt.setString(2, songName);
 
             int result = pstmt.executeUpdate();
-            return result == 1;
+            if (result == 1) {
+				return true;
+			}
         } finally {
             DBUtil.close(con, pstmt);
         }
+        return false;
     }
 }

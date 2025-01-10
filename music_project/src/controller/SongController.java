@@ -24,8 +24,7 @@ public class SongController {
             s.updateUrlBySongName(songName, url);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
-            EndView.showError("수정할 수 없음");
+            EndView.showError("노래 수정 오류");
         }
     }
 }
