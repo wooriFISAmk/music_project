@@ -8,7 +8,7 @@ import lombok.Getter;
 public class SongDTO {
 	private int songId;
 	private String artist;
-	private String song;
+	private String songName;
 	private String genre;
 	private boolean artType;
 	private String url;

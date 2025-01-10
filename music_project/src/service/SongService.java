@@ -9,11 +9,11 @@ public interface SongService {
 	
 	public ArrayList<SongDTO> getAllSongs() throws SQLException;
 	
-	public SongDTO getSongByName() throws SQLException;
+	public SongDTO getSongBySongName() throws SQLException;
 	
-	public boolean deleteSongByName() throws SQLException;
+	public boolean deleteSongBySongName() throws SQLException;
 	
-	public boolean updateUrlByName() throws SQLException;
+	public boolean updateUrlBySongName() throws SQLException;
 	
 	public boolean createSong(SongDTO song) throws SQLException;
 	

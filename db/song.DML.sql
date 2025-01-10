@@ -2,7 +2,7 @@ use fisa;
 
 -- 노래 정보 저장
 -- 가수이름, 대표곡, 장르, 가수타입(0 혹은 1 입력), 노래링크 입력
-INSERT INTO song (artist, song, genre, art_type, url) VALUES
+INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 ('다이나믹듀오', '죽일놈', '랩', 1, 'https://www.youtube.com/watch?v=CqBAVQOkui0'),
 ('아이유(IU)', 'Celebrity', '가요', 0, 'https://www.youtube.com/watch?v=0-q1KafFCLU'),
 ('Red Hot Chill Peppers', 'Can\'t Stop', '팝', 1, 'https://www.youtube.com/watch?v=8DyziWtkfBw'),
