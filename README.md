@@ -161,15 +161,15 @@ public static boolean deleteSong(String songName, String artist) {
 ### ▶️ 실행 방법 ▶️
 
 1. MySQL에서 `song` 테이블을 생성하고 데이터를 삽입합니다.
-2. 'dp.properties' 파일에서 데이터베이스 연결 정보를 설정합니다.
+2. `dp.properties` 파일에서 데이터베이스 연결 정보를 설정합니다.
    ```java
    # db.properites
    # mysql
-    jdbc.driver=driver
-    jdbc.url=jdbc:db 연결 주소
-    jdbc.id=id
-    jdbc.pw=pw
-  ```
+    jdbc.driver=//driver
+    jdbc.url=jdbc://db 연결 주소
+    jdbc.id=//id
+    jdbc.pw=//pw
+    ```
 
 3. `DBUtil.java` 파일에서 데이터베이스 연결 정보를 설정합니다.
    ```java
@@ -184,4 +184,6 @@ public static boolean deleteSong(String songName, String artist) {
 ### 📖 참고 자료 📖
 
 - [지니뮤직 공식 사이트](https://www.genie.co.kr)
+
+
 
