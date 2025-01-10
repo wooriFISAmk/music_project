@@ -7,6 +7,14 @@ import model.dto.SongDTO;
 
 public class SongServiceImp implements SongService {
 
+	private static SongServiceImp instance = new SongServiceImp();
+
+	private SongServiceImp() {};
+
+	public static SongServiceImp getInstance() {
+		return instance;
+	}
+
 	@Override
 	public ArrayList<SongDTO> getAllSongs() throws SQLException {
 		// TODO Auto-generated method stub
@@ -36,6 +44,5 @@ public class SongServiceImp implements SongService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 
 }
