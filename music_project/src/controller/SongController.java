@@ -10,7 +10,6 @@ import view.EndView;
 public class SongController {
 
 	static SongServiceImp s = SongServiceImp.getInstance();
-
 	// 새로운 노래 추가 로직
 	public static boolean createSong(SongDTO song) {
 		boolean result = false;
@@ -21,7 +20,7 @@ public class SongController {
 		}
 		return result;
 	}
-
+  
 	public static void getAllSongs() {
 		try {
 			EndView.songListView(s.getAllSongs());
@@ -31,12 +30,12 @@ public class SongController {
 		}
 	}
     // 노래 이름으로 URL 업데이트 메서드
-    public static void updateUrlBySongName(String songName, String url) {
-        try {
-            s.updateUrlBySongName(songName, url);
-        } catch (Exception e) {
-            e.printStackTrace();
-            EndView.showError("노래 수정 오류");
-        }
-    }
+   public static void updateUrlBySongName(String songName, String url) {
+       try {
+           s.updateUrlBySongName(songName, url);
+       } catch (Exception e) {
+           e.printStackTrace();
+           EndView.showError("노래 수정 오류");
+       }
+   }
 }
