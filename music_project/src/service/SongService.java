@@ -9,7 +9,7 @@ public interface SongService {
 	
 	public ArrayList<SongDTO> getAllSongs() throws SQLException;
 	
-	public SongDTO getSongBySongName(String songName) throws SQLException;
+	public ArrayList<SongDTO> getSongsByKeyword(String keyword) throws SQLException;
 	
 	public boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException;
 	

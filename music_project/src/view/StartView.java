@@ -33,6 +33,11 @@ public class StartView {
 		//노래 제목으로 영상 url 수정
 		System.out.println("\n***노래 제목으로 url 수정***");
 		SongController.updateUrlBySongName("선물","https://www.youtube.com/watch?v=0SbNyKBh3VE");
+		
+		// 키워드를 통해 노래 검색
+		System.out.println("\n***** 키워드로 노래 검색 *****");
+		SongController.getSongsBySongName("아이유");
+		
 	}
 
 }

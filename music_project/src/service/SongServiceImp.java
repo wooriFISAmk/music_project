@@ -22,9 +22,8 @@ public class SongServiceImp implements SongService {
 	}
 
 	@Override
-	public SongDTO getSongBySongName(String songName) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<SongDTO> getSongsByKeyword(String keyword) throws SQLException {
+		return SongDAO.getSongsByKeyword(keyword);
 	}
 
 	@Override
