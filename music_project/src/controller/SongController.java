@@ -2,7 +2,7 @@ package controller;
 
 import java.sql.SQLException;
 
-import model.SongDAO;
+import exception.SongException;
 import model.dto.SongDTO;
 import service.SongServiceImp;
 import view.EndView;
@@ -24,11 +24,11 @@ public class SongController {
         	s.createSong(song);
         	
             System.out.println("새로운 노래가 추가되었습니다.");
-        } catch (SQLException e) {
+        } catch (SQLException | SongException e) {
             // 예외 발생 시 실패 메시지 출력
             e.printStackTrace();  // 예외 내용 출력
             EndView.showError("노래 삭제 실패");
-        }
+        } 
     }
 
   

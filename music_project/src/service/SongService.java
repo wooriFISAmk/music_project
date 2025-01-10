@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import exception.SongException;
 import model.dto.SongDTO;
 
 public interface SongService {
@@ -15,6 +16,6 @@ public interface SongService {
 	
 	public boolean updateUrlBySongName(String songName, String url) throws SQLException;
 	
-	public boolean createSong(SongDTO song) throws SQLException;
+	public boolean createSong(SongDTO song) throws SQLException, SongException;
 	
 }

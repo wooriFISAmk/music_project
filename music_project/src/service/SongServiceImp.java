@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import exception.SongException;
 import model.SongDAO;
 import model.dto.SongDTO;
 import view.EndView;
@@ -43,10 +44,9 @@ public class SongServiceImp implements SongService {
 	}
 
 	@Override
-	public boolean createSong(SongDTO song) throws SQLException {
+	public boolean createSong(SongDTO song) throws SQLException, SongException {
 		if(!SongDAO.checkSongBySongNameAndArtist(song.getSongName(), song.getArtist())) {
-			EndView.showError("이미 존재하는 노래 제목과 아티스트입니다");
-			throw(new SQLException());
+			throw(new SongException("이미 존재하는 노래 제목과 아티스트입니다"));
 		}
 		return SongDAO.createSong(song);
 	}
