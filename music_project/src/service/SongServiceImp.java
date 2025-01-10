@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.SongDAO;
 import model.dto.SongDTO;
+import view.EndView;
 
 public class SongServiceImp implements SongService {
 
@@ -38,12 +39,15 @@ public class SongServiceImp implements SongService {
 
 	@Override
 	public boolean updateUrlBySongName(String songName, String url) throws SQLException {
-		// TODO Auto-generated method stub
 		return SongDAO.updateUrlBySongName(songName, url);
 	}
 
 	@Override
 	public boolean createSong(SongDTO song) throws SQLException {
+		if(!SongDAO.checkSongBySongNameAndArtist(song.getSongName(), song.getArtist())) {
+			EndView.showError("이미 존재하는 노래 제목과 아티스트입니다");
+			throw(new SQLException());
+		}
 		return SongDAO.createSong(song);
 	}
 
