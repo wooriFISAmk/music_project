@@ -9,3 +9,5 @@
 .springBeans
 .sts4-cache
 bin/
+# Ignore dp.properties
+dp.properties
