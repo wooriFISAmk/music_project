@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.SongDAO;
 import model.dto.SongDTO;
 
 public class SongServiceImp implements SongService {
@@ -41,8 +42,7 @@ public class SongServiceImp implements SongService {
 
 	@Override
 	public boolean createSong(SongDTO song) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		return SongDAO.createSong(song);
 	}
 
 }
