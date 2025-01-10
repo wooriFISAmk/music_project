@@ -14,19 +14,19 @@ public class SongServiceImp implements SongService {
 	}
 
 	@Override
-	public SongDTO getSongByName() throws SQLException {
+	public SongDTO getSongBySongName(String songName) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean deleteSongByName() throws SQLException {
+	public boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateUrlByName() throws SQLException {
+	public boolean updateUrlBySongName(String songName, String url) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}
