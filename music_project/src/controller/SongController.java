@@ -77,5 +77,16 @@ public class SongController {
 		}
 	}
 	
+	public static boolean deleteSongBySongNameAndArtist(String songName , String artist) {
+		boolean result = false;
+		try {
+			result = s.deleteSongBySongNameAndArtist(songName, artist);
+			System.out.println("삭제 완료");
+		} catch(SQLException s) {
+			s.printStackTrace();
+			EndView.showError("노래 삭제 실패");
+		}
+		return result;
+	}
 
 }

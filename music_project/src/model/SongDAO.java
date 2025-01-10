@@ -113,17 +113,17 @@ public class SongDAO {
 		
 	}
 	
-
 	public static boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = DBUtil.getConnection();
-			pstmt=con.prepareStatement("delete from song where song_name=? where artist=?");
+			pstmt=con.prepareStatement("delete from song where song_name=? and artist=?");
 			pstmt.setString(1, songName);
 			pstmt.setString(2, artist);
 			int result = pstmt.executeUpdate();
 			if (result ==1) {
+				
 				return true;
 			}
 		} finally {
