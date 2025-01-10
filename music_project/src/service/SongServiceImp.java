@@ -28,8 +28,12 @@ public class SongServiceImp implements SongService {
 
 	@Override
 	public boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			return SongDAO.deleteSongBySongNameAndArtist(songName, artist);
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import model.dto.SongDTO;
 public class StartView {
 
 	public static void main(String[] args) {
+		
 		// 노래 추가하기
 		SongController.addSong("포도", "귤", "힙합", true, "google.com");
 				
