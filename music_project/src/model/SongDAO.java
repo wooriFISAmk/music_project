@@ -11,7 +11,26 @@ import model.util.DBUtil;
 
 public class SongDAO {
 
-    // 전체 노래 조회 메서드
+    // 새로운 노래 추가 메서드
+    public static boolean createSong(SongDTO song) throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            con = DBUtil.getConnection();
+            pstmt = con.prepareStatement("INSERT INTO song (artist, song_name, genre, art_type, url) VALUES (?, ?, ?, ?, ?)");
+            pstmt.setString(1, song.getArtist());
+            pstmt.setString(2, song.getSongName());
+            pstmt.setString(3, song.getGenre());
+            pstmt.setBoolean(4, song.isArtType());
+            pstmt.setString(5, song.getUrl());
+
+            int result = pstmt.executeUpdate();
+            return result == 1;
+        } finally {
+            DBUtil.close(con, pstmt);
+        }
+    }
+
     public static ArrayList<SongDTO> getAllSongs() throws SQLException {
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -51,12 +70,9 @@ public class SongDAO {
             pstmt.setString(2, songName);
 
             int result = pstmt.executeUpdate();
-            if (result == 1) {
-				return true;
-			}
+            return result == 1;
         } finally {
             DBUtil.close(con, pstmt);
         }
-        return false;
     }
 }

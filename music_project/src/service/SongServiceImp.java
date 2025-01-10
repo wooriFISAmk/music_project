@@ -41,8 +41,7 @@ public class SongServiceImp implements SongService {
 
 	@Override
 	public boolean createSong(SongDTO song) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		return SongDAO.createSong(song);
 	}
 
 }
