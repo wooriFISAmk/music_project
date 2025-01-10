@@ -10,32 +10,50 @@ import model.dto.SongDTO;
 import model.util.DBUtil;
 
 public class SongDAO {
-	
-	public static ArrayList<SongDTO> getAllSongs() throws SQLException {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		ArrayList<SongDTO> songs = null;
-		
-		try {
-			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("select *from song");
-			rset = pstmt.executeQuery();
-			
-			songs = new ArrayList<>();
-			while(rset.next()) {
-				songs.add(SongDTO.builder()
-						.songId(rset.getInt(1))
-						.artist(rset.getString(2))
-						.songName(rset.getString(3))
-						.genre(rset.getString(4))
-						.artType(rset.getBoolean(5))
-						.url(rset.getString(6)).build());
-			}
-		} finally {
-			DBUtil.close(con, pstmt, rset);;
-		}
-		return songs;
-	}
 
+    // 전체 노래 조회 메서드
+    public static ArrayList<SongDTO> getAllSongs() throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        ArrayList<SongDTO> songs = null;
+
+        try {
+            con = DBUtil.getConnection();
+            pstmt = con.prepareStatement("SELECT * FROM song");
+            rset = pstmt.executeQuery();
+
+            songs = new ArrayList<>();
+            while (rset.next()) {
+                songs.add(SongDTO.builder()
+                        .songId(rset.getInt(1))
+                        .artist(rset.getString(2))
+                        .songName(rset.getString(3))
+                        .genre(rset.getString(4))
+                        .artType(rset.getBoolean(5))
+                        .url(rset.getString(6))
+                        .build());
+            }
+        } finally {
+            DBUtil.close(con, pstmt, rset);
+        }
+        return songs;
+    }
+
+    // 노래 이름으로 URL 업데이트 메서드
+    public static boolean updateUrlBySongName(String songName, String url) throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            con = DBUtil.getConnection();
+            pstmt = con.prepareStatement("UPDATE song SET url = ? WHERE song_name = ?");
+            pstmt.setString(1, url);
+            pstmt.setString(2, songName);
+
+            int result = pstmt.executeUpdate();
+            return result == 1;
+        } finally {
+            DBUtil.close(con, pstmt);
+        }
+    }
 }
