@@ -68,14 +68,14 @@ public static void getAllSongs() {
 입력된 제목에 해당하는 노래 정보를 조회합니다.
 
 ```java
-public static void getSongByTitle(String title) {
-    try {
-        EndView.songView(s.getSongByTitle(title));
-    } catch (SQLException e) {
-        e.printStackTrace();
-        EndView.showError("노래 조회 오류");
-    }
-}
+public static void getSongsBySongName(String keyword) {
+		try {
+			EndView.songListView(s.getSongsByKeyword(keyword));
+		} catch (SQLException e) {
+			e.printStackTrace();
+			EndView.showError("키워드로 노래 검색 조회 오류");
+		}
+	}
 ```
 
 #### 3. 새로운 노래 추가
@@ -100,13 +100,13 @@ public static boolean createSong(SongDTO song) {
 
 ```java
 public static void updateUrlBySongName(String songName, String url) {
-    try {
-        s.updateUrlBySongName(songName, url);
-    } catch (Exception e) {
-        e.printStackTrace();
-        EndView.showError("노래 URL 수정 오류");
-    }
-}
+       		try {
+           		s.updateUrlBySongName(songName, url);
+		} catch (Exception e) {
+           		e.printStackTrace();
+          		EndView.showError("노래 수정 오류");
+       		}
+   	}
 ```
 
 #### 5. 노래 삭제
@@ -114,14 +114,17 @@ public static void updateUrlBySongName(String songName, String url) {
 입력된 제목과 가수를 기준으로 노래 정보를 삭제합니다.
 
 ```java
-public static boolean deleteSong(String songName, String artist) {
-    try {
-        return SongDAO.deleteSong(songName, artist);
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
-    }
-}
+public static boolean deleteSongBySongNameAndArtist(String songName , String artist) {
+		boolean result = false;
+		try {
+			result = s.deleteSongBySongNameAndArtist(songName, artist);
+			System.out.println("삭제 완료");
+		} catch(SQLException s) {
+			s.printStackTrace();
+			EndView.showError("노래 삭제 실패");
+		}
+		return result;
+	}
 ```
 
 ---
