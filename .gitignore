@@ -1,5 +1,5 @@
 /.metadata/
-*/target/*
+
 ### STS ###
 .apt_generated
 .classpath
@@ -9,5 +9,7 @@
 .springBeans
 .sts4-cache
 bin/
+*/target/*
+
 # Ignore dp.properties
-dp.properties
+.properties
