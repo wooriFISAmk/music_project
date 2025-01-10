@@ -1,11 +1,9 @@
 package model;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import model.dto.SongDTO;
 import model.util.DBUtil;
 
@@ -22,7 +20,7 @@ public class SongDAO {
 				pstmt.setString(3, song.getGenre());
 				pstmt.setBoolean(4, song.isArtType());
 				pstmt.setString(5, song.getUrl());
-				
+
 				int result = pstmt.executeUpdate();
 				
 				if (result == 1) {
@@ -35,18 +33,18 @@ public class SongDAO {
 			
 		return false;
 		}
-	
+
 	public static ArrayList<SongDTO> getAllSongs() throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<SongDTO> songs = null;
-		
+
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement("select *from song");
 			rset = pstmt.executeQuery();
-			
+
 			songs = new ArrayList<>();
 			while(rset.next()) {
 				songs.add(SongDTO.builder()
@@ -62,5 +60,23 @@ public class SongDAO {
 		}
 		return songs;
 	}
+    // 노래 이름으로 URL 업데이트 메서드
+    public static boolean updateUrlBySongName(String songName, String url) throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            con = DBUtil.getConnection();
+            pstmt = con.prepareStatement("UPDATE song SET url = ? WHERE song_name = ?");
+            pstmt.setString(1, url);
+            pstmt.setString(2, songName);
 
+            int result = pstmt.executeUpdate();
+            if (result == 1) {
+				return true;
+			}
+        } finally {
+            DBUtil.close(con, pstmt);
+        }
+        return false;
+    }
 }

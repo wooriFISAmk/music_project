@@ -36,7 +36,7 @@ public class SongServiceImp implements SongService {
 	@Override
 	public boolean updateUrlBySongName(String songName, String url) throws SQLException {
 		// TODO Auto-generated method stub
-		return false;
+		return SongDAO.updateUrlBySongName(songName, url);
 	}
 
 	@Override
