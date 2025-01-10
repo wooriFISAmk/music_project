@@ -1,45 +1,65 @@
 package model;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import model.dto.SongDTO;
 import model.util.DBUtil;
 
 public class SongDAO {
+	// 새로운 노래 추가
+		public static boolean createSong(SongDTO song) throws SQLException {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = DBUtil.getConnection();
+				pstmt = con.prepareStatement("insert into song (artist, song_name, genre, art_type, url) values(?, ?, ?, ?, ?)");
+				pstmt.setString(1, song.getArtist());
+				pstmt.setString(2, song.getSongName());
+				pstmt.setString(3, song.getGenre());
+				pstmt.setBoolean(4, song.isArtType());
+				pstmt.setString(5, song.getUrl());
 
-    // 전체 노래 조회 메서드
-    public static ArrayList<SongDTO> getAllSongs() throws SQLException {
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rset = null;
-        ArrayList<SongDTO> songs = null;
+				int result = pstmt.executeUpdate();
 
-        try {
-            con = DBUtil.getConnection();
-            pstmt = con.prepareStatement("SELECT * FROM song");
-            rset = pstmt.executeQuery();
+				if (result == 1) {
+					return true;
+				}
 
-            songs = new ArrayList<>();
-            while (rset.next()) {
-                songs.add(SongDTO.builder()
-                        .songId(rset.getInt(1))
-                        .artist(rset.getString(2))
-                        .songName(rset.getString(3))
-                        .genre(rset.getString(4))
-                        .artType(rset.getBoolean(5))
-                        .url(rset.getString(6))
-                        .build());
-            }
-        } finally {
-            DBUtil.close(con, pstmt, rset);
-        }
-        return songs;
-    }
+			} finally {
+				DBUtil.close(con, pstmt);
+			}
 
+		return false;
+		}
+
+	public static ArrayList<SongDTO> getAllSongs() throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<SongDTO> songs = null;
+
+		try {
+			con = DBUtil.getConnection();
+			pstmt = con.prepareStatement("select *from song");
+			rset = pstmt.executeQuery();
+
+			songs = new ArrayList<>();
+			while(rset.next()) {
+				songs.add(SongDTO.builder()
+						.songId(rset.getInt(1))
+						.artist(rset.getString(2))
+						.songName(rset.getString(3))
+						.genre(rset.getString(4))
+						.artType(rset.getBoolean(5))
+						.url(rset.getString(6)).build());
+			}
+		} finally {
+			DBUtil.close(con, pstmt, rset);;
+		}
+		return songs;
+	}
     // 노래 이름으로 URL 업데이트 메서드
     public static boolean updateUrlBySongName(String songName, String url) throws SQLException {
         Connection con = null;
