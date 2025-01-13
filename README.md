@@ -178,6 +178,8 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 5. 프로젝트를 실행하여 CRUD 기능을 테스트합니다.
 
 ---
+<br><br>
+
 
 ### 🔥 트러블슈팅 🔥 ###
 -  `.gitignore` 설정 문제
@@ -188,10 +190,12 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
      git rm --cached db.properties
      git commit -m "Remove sensitive data"
      ```
+<br><br>
 
 ### 💡 고찰 💡 ###
 1. 초기 기획 단계에서 프로젝트의 세부 요구사항을 충분히 논의하지 않아 중간 단계에서 수정 작업이 빈번하게 발생하였습니다. 테이블을 수정하고 데이터를 반영하는 과정에서 혼란이 있었습니다. 이를 통해 기획과 설계의 중요성을 깨달았습니다. 
 2. 코드 컨벤션만 설정하고 커밋 컨벤션을 설정하지 않아 커밋 기록을 보고 수정 사항을 확실히 파악할 수 없었습니다. 커밋 메시지를 체계적으로 관리하는 것이 협업과 코드 유지보수에서 매우 큰 도움이 되는 것을 실감하였습니다.
+<br><br>
 
 ### 📖 참고 자료 📖
 
