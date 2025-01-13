@@ -12,6 +12,10 @@ public class SongController {
 
 	public static void createSong(String songName, String artist, String genre, String url) {
 		try {
+			System.out.println(songName);
+			System.out.println(artist);
+			System.out.println(genre);
+			System.out.println(url);
 			SongDTO song = SongDTO.builder().songName(songName).artist(artist).genre(genre).url(url).build();
 
 			s.createSong(song);
