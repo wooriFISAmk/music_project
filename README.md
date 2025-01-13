@@ -7,7 +7,30 @@
 ![_- visual selection](https://github.com/user-attachments/assets/1f477548-0f44-4573-8b40-4949e8f08a95)
 
 
+
+### 📂 프로젝트 구조 📂
+
+```
+├── src
+│   ├── controller
+│   │   └── SongController.java
+│   ├── model
+│   │   ├── dto
+│   │   │   └── SongDTO.java
+│   │   ├── util
+│   │   │   └── DBUtil.java
+│   │   └── SongDAO.java
+│   ├── service
+│   │   ├── SongService.java
+│   │   └── SongServiceImp.java
+│   └── view
+│       └── StartView.java
+│       └── EndView.java
+└── README.md
+```
+
 ---
+
 
 ### 🐣 팀원 소개 🐣
 
@@ -18,7 +41,9 @@
 | 장수현 | 데이터베이스 설계 및 SQL 작성, Service, Controller 계층 구현 |
 | 정파란 | 데이터베이스 설계 및 SQL 작성, Service, Controller 계층 구현       |
 
+
 ---
+
 
 ### 🗂️ 데이터베이스 설계 🗂️
 
@@ -49,6 +74,7 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 
 ---
 
+
 ### 🚀 주요 기능 🚀
 ![🚀 주요 기능 🚀 - visual selection](https://github.com/user-attachments/assets/43ef4398-699d-461c-851d-b51e4c83b42b)
 
@@ -77,37 +103,6 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 
 ---
 
-### 📂 프로젝트 구조 📂
-
-```
-├── src
-│   ├── controller
-│   │   └── SongController.java
-│   ├── model
-│   │   ├── dto
-│   │   │   └── SongDTO.java
-│   │   ├── util
-│   │   │   └── DBUtil.java
-│   │   └── SongDAO.java
-│   ├── service
-│   │   ├── SongService.java
-│   │   └── SongServiceImp.java
-│   └── view
-│       └── StartView.java
-│       └── EndView.java
-└── README.md
-```
-
----
-
-### 🛠️ 사용 기술 🛠️
-
-- **Java**
-- **MySQL**
-- **JDBC**
-- **Git** 및 **GitHub**
-
----
 
 ### ▶️ 실행 방법 ▶️
 
