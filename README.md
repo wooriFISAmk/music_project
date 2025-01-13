@@ -61,7 +61,7 @@
 
 <table style="width: 100%; border: 0; table-layout: fixed;">
   <tr>
-    <td style="width: 50%; text-align: center; vertical-align: top;">
+    <td style="width: 100%; text-align: center; vertical-align: top;">
       <img src="https://github.com/user-attachments/assets/883d8b45-e592-48e4-ab84-0772c8fe45bd" width="80%" />
     </td>
     <td style="width: 50%; vertical-align: top;">
@@ -92,8 +92,9 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 
 
 ### 🚀 주요 기능 🚀
-![🚀 주요 기능 🚀 - visual selection](https://github.com/user-attachments/assets/43ef4398-699d-461c-851d-b51e4c83b42b)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/43ef4398-699d-461c-851d-b51e4c83b42b" width=500"/>
+</p>
 
 #### 1. 전체 노래 조회
 
