@@ -179,6 +179,12 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 
 ---
 
+### 🔥회고🔥 ###
+1. git 
+2. 기획중요
+3. 
+
+
 ### 📖 참고 자료 📖
 
 - [지니뮤직 공식 사이트](https://www.genie.co.kr)
