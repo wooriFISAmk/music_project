@@ -61,16 +61,17 @@
 
 <table style="width: 100%; border: 0; table-layout: fixed;">
   <tr>
-    <td style="width: 30%; text-align: center; vertical-align: top;">
+    <td style="width: 100%; text-align: center; vertical-align: top;">
       <img src="https://github.com/user-attachments/assets/883d8b45-e592-48e4-ab84-0772c8fe45bd" width="80%" />
     </td>
-    <td style="width: 70%; vertical-align: top;">
+    <td style="width: 50%; vertical-align: top;">
       <pre style="white-space: pre-wrap; word-wrap: break-word;">
 CREATE TABLE song (
        song_id INT AUTO_INCREMENT PRIMARY KEY,
        artist VARCHAR(30) NOT NULL,
        song_name VARCHAR(30) NOT NULL,
-       genre ENUM('랩','가요','팝','락','인디','댄스','힙합','드라마','R&B', 'OST', '발라드'),
+       genre ENUM('랩','가요','팝','락','인디','댄스',
+	      '힙합','드라마','R&B', 'OST', '발라드'),
        art_type TINYINT,
        url VARCHAR(100)
 );
