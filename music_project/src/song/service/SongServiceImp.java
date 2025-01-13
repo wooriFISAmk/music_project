@@ -1,17 +1,18 @@
-package service;
+package song.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.SongDAO;
-import model.dto.SongDTO;
+import song.model.SongDAO;
+import song.model.dto.SongDTO;
 import view.EndView;
 
 public class SongServiceImp implements SongService {
 
 	private static SongServiceImp instance = new SongServiceImp();
 
-	private SongServiceImp() {};
+	private SongServiceImp() {
+	};
 
 	public static SongServiceImp getInstance() {
 		return instance;
@@ -31,7 +32,7 @@ public class SongServiceImp implements SongService {
 	public boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException {
 		try {
 			return SongDAO.deleteSongBySongNameAndArtist(songName, artist);
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -44,9 +45,9 @@ public class SongServiceImp implements SongService {
 
 	@Override
 	public boolean createSong(SongDTO song) throws SQLException {
-		if(!SongDAO.checkSongBySongNameAndArtist(song.getSongName(), song.getArtist())) {
+		if (!SongDAO.checkSongBySongNameAndArtist(song.getSongName(), song.getArtist())) {
 			EndView.showError("이미 존재하는 노래 제목과 아티스트입니다");
-			throw(new SQLException());
+			throw (new SQLException());
 		}
 		return SongDAO.createSong(song);
 	}

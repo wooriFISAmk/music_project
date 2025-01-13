@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-import controller.SongController;
+import song.controller.SongController;
 
 public class StartView {
 
@@ -17,9 +17,9 @@ public class StartView {
 		
 		// 노래 추가하기
 		System.out.println("\n*** 노래 추가하기 ***");
-		System.out.println("노래 제목, 아티스트, 장르, url 입려해주세요.");
+		System.out.println("노래 제목, 아티스트, 장르, url 입력해주세요.");
 		StringTokenizer st1 = new StringTokenizer(br.readLine());
-		SongController.addSong(st1.nextToken(), st1.nextToken(), st1.nextToken(), st1.nextToken());
+		SongController.createSong(st1.nextToken(), st1.nextToken(), st1.nextToken(), st1.nextToken());
 				
 		// 노래 제목으로 영상 url 수정
 		System.out.println("\n***노래 제목으로 url 수정***");
