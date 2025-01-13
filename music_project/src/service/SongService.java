@@ -13,7 +13,7 @@ public interface SongService {
 	
 	public boolean deleteSongBySongNameAndArtist(String songName, String artist) throws SQLException;
 	
-	public boolean updateUrlBySongName(String songName, String url) throws SQLException;
+	public boolean updateUrlBySongNameAndArtist(String songName, String aritst, String url) throws SQLException;
 	
 	public boolean createSong(SongDTO song) throws SQLException;
 	

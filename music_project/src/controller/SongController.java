@@ -2,7 +2,6 @@ package controller;
 
 import java.sql.SQLException;
 
-import model.SongDAO;
 import model.dto.SongDTO;
 import service.SongServiceImp;
 import view.EndView;
@@ -11,19 +10,17 @@ public class SongController {
 
 	static SongServiceImp s = SongServiceImp.getInstance();
     
-    public static void addSong(String artist, String songName, String genre, boolean artType, String url) {
+    public static void addSong(String artist, String songName, String genre, String url) {
         try {
         	SongDTO song = SongDTO.builder()
                     .artist(artist)
                     .songName(songName)
                     .genre(genre)
-                    .artType(artType)
                     .url(url)
                     .build();
         	
         	s.createSong(song);
-        	
-            System.out.println("새로운 노래가 추가되었습니다.");
+            EndView.showMessage("새로운 노래가 추가되었습니다.");
         } catch (SQLException e) {
             // 예외 발생 시 실패 메시지 출력
             e.printStackTrace();  // 예외 내용 출력
@@ -32,7 +29,6 @@ public class SongController {
     }
 
   
-	
 	public static void getAllSongs() {
 		try {
 			EndView.songListView(s.getAllSongs());
@@ -43,9 +39,10 @@ public class SongController {
 	}
 
     // 노래 이름으로 URL 업데이트 메서드
-   public static void updateUrlBySongName(String songName, String url) {
+   public static void updateUrlBySongNameAndArtist(String songName, String artist, String url) {
        try {
-           s.updateUrlBySongName(songName, url);
+           s.updateUrlBySongNameAndArtist(songName, artist, url);
+           EndView.showMessage("업데이트되었습니다.");
        } catch (Exception e) {
            e.printStackTrace();
            EndView.showError("노래 수정 오류");
@@ -66,7 +63,7 @@ public class SongController {
 		boolean result = false;
 		try {
 			result = s.deleteSongBySongNameAndArtist(songName, artist);
-			System.out.println("삭제 완료");
+			EndView.showMessage("삭제되었습니다.");
 		} catch(SQLException s) {
 			s.printStackTrace();
 			EndView.showError("노래 삭제 실패");
