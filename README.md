@@ -1,15 +1,27 @@
 # Project1. JDBC mysql 연동 CRUD 구현 프로젝트
-### 📌 목차 📌 ###
-[🔗 프로젝트 개요](#-프로젝트-개요-)  
+
+<br>
+
+### ✨ 팀원 소개 ✨
+| <img src="https://github.com/nanahj.png" width="80"> | <img src="https://github.com/imhaeunim.png" width="80"> | <img src="https://github.com/Aunsxm.png" width="80"> | <img src="https://github.com/BlueRedOrange.png" width="80"> |
+|:---:|:---:|:---:|:---:|
+| [이현정](https://github.com/nanahj) | [임하은](https://github.com/imhaeunim) | [장수현](https://github.com/Aunsxm) | [정파란](https://github.com/BlueRedOrange) |
+
+<br>
+
+---
+
+<br>
+
+### 📌 프로젝트 개요 📌
 [🔗 프로젝트 구조 ](#-프로젝트-구조-)  
-[🔗 팀원 소개 ](#-팀원-소개-)  
 [🔗 데이터베이스 설계 ](#%ef%b8%8f-데이터베이스-설계-%ef%b8%8f)  
 [🔗 주요 기능 ](#-주요-기능-)  
-[🔗 실행 방법 ](#%ef%b8%8f-실행-방법-%ef%b8%8f)  
+[🔗 트러블슈팅 ](#-트러블슈팅-)  
+[🔗 고찰 ](#-고찰-)  
 [🔗 참고 자료 ](#-참고-자료-)  
-<br><br>
 
-### ✨ 프로젝트 개요 ✨
+<br>
 
 이 프로젝트는 **Java**와 **MySQL**을 사용하여 **MVC 패턴**을 구성하였습니다. 지니뮤직 사이트의 데이터를 기반으로 음악 검색, 수정, 삭제 등 CRUD 기능을 제공하며 **데이터베이스** 연동을 통해 사용자 경험을 최적화 하였습니다.
 프로젝트의 데이터 처리 및 서버 통신은 **JDBC**를 이용하여 직접 구현하였으며, **SQL 최적화**와 **트랜잭션 관리** 등 데이터 베이스 연동과 다양한 CRUD 기능을 구현하였습니다. 본 프로젝트는 **Git**을 통한 버전 관리와 **Agile 방식**으로 팀원들의 협업을 통해 진행되었습니다.
@@ -18,38 +30,34 @@
   <img src="https://github.com/user-attachments/assets/1f477548-0f44-4573-8b40-4949e8f08a95" width="500"/>
 </p>
 
+<br>
+<br>
+
 ### 📂 프로젝트 구조 📂
 
 ```
 ├── src
-│   ├── controller
+│   ├── song.controller
 │   │   └── SongController.java
-│   ├── model
+│   ├── song.model
 │   │   ├── dto
 │   │   │   └── SongDTO.java
 │   │   ├── util
 │   │   │   └── DBUtil.java
 │   │   └── SongDAO.java
-│   ├── service
+│   ├── song.service
 │   │   ├── SongService.java
 │   │   └── SongServiceImp.java
-│   └── view
+│   └── song.view
 │       ├── StartView.java
 │       └── EndView.java
 └── README.md
 ```
-<br><br>
+<br>
 
-### 🐣 팀원 소개 🐣
+---
 
-| 이름  | 역할                        |
-| --- | ------------------------- |
-| 이현정 | JDBC 연동 및 DAO 구현, Service, Controller 계층 구현         |
-| 임하은 | 프로젝트 환경 설정 및 Service, Controller 계층 구현         |
-| 장수현 | 데이터베이스 설계 및 SQL 작성, Service, Controller 계층 구현 |
-| 정파란 | 데이터베이스 설계 및 SQL 작성, Service, Controller 계층 구현       |
-
-<br><br>
+<br>
 
 
 ### 🗂️ 데이터베이스 설계 🗂️
@@ -80,20 +88,19 @@ CREATE TABLE song (
   </tr>
 </table>
 
-#### 데이터 예시 (INSERT 문)
+#### 데이터 예시
 
-```sql
-INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
-('DAY6(데이식스)', 'HAPPY', '락', 1, 'https://www.youtube.com/watch?v=2o1zdX72400'),
-('멜로망스(MeloMance)', '선물', '인디', 1, 'https://www.youtube.com/watch?v=qYYJqWsBb1U'),
-('Tyla', 'Water', '팝', 0, 'https://youtu.be/wlmUnWLaeog?si=IUZ4ieLBGhsL3bnh'),
-```
+<img src="https://github.com/user-attachments/assets/04cadfe3-510f-45b8-b0d9-cf094b2c1bd5" width="700"/>
+
+<br>
 
 ---
 
+<br>
+
 
 ### 🚀 주요 기능 🚀
-<p align="center">
+<p>
   <img src="https://github.com/user-attachments/assets/43ef4398-699d-461c-851d-b51e4c83b42b" width=500"/>
 </p>
 
@@ -153,33 +160,12 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 	</td>
 </table>
 
+<br>
+
+
 ---
 
-
-### ▶️ 실행 방법 ▶️
-
-1. MySQL에서 `song` 테이블을 생성하고 데이터를 삽입합니다.
-2. `dp.properties` 파일에서 데이터베이스 연결 정보를 설정합니다.
-   ```java
-   # db.properites
-   # mysql
-    jdbc.driver=//driver
-    jdbc.url=jdbc://db 연결 주소
-    jdbc.id=//id
-    jdbc.pw=//pw
-    ```
-
-3. `DBUtil.java` 파일에서 데이터베이스 연결 정보를 설정합니다.
-   ```java
-   public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(p.getProperty("jdbc.url"), p.getProperty("jdbc.id"), p.getProperty("jdbc.pw"));
-	}
-   ```
-5. 프로젝트를 실행하여 CRUD 기능을 테스트합니다.
-
----
-<br><br>
-
+<br>
 
 ### 🔥 트러블슈팅 🔥 ###
 -  `.gitignore` 설정 문제
@@ -190,11 +176,13 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
      git rm --cached db.properties
      git commit -m "Remove sensitive data"
      ```
+
 <br><br>
 
 ### 💡 고찰 💡 ###
 1. 초기 기획 단계에서 프로젝트의 세부 요구사항을 충분히 논의하지 않아 중간 단계에서 수정 작업이 빈번하게 발생하였습니다. 테이블을 수정하고 데이터를 반영하는 과정에서 혼란이 있었습니다. 이를 통해 기획과 설계의 중요성을 깨달았습니다. 
 2. 코드 컨벤션만 설정하고 커밋 컨벤션을 설정하지 않아 커밋 기록을 보고 수정 사항을 확실히 파악할 수 없었습니다. 커밋 메시지를 체계적으로 관리하는 것이 협업과 코드 유지보수에서 매우 큰 도움이 되는 것을 실감하였습니다.
+
 <br><br>
 
 ### 📖 참고 자료 📖
