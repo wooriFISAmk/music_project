@@ -38,8 +38,8 @@ public class SongServiceImp implements SongService {
 	}
 
 	@Override
-	public boolean updateUrlBySongName(String songName, String url) throws SQLException {
-		return SongDAO.updateUrlBySongName(songName, url);
+	public boolean updateUrlBySongNameAndArtist(String songName, String artist, String url) throws SQLException {
+		return SongDAO.updateUrlBySongNameAndArtist(songName, artist, url);
 	}
 
 	@Override
