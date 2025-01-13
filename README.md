@@ -1,20 +1,22 @@
 # Project1. JDBC mysql 연동 CRUD 구현 프로젝트
 ### 📌 목차 📌 ###
-- [프로젝트 개요](#-프로젝트-개요-)
-- [ 프로젝트 구조 ](#-프로젝트-구조-)
-- [ 팀원 소개 ](#-팀원-소개-)
-- [ 데이터베이스 설계 ](#%ef%b8%8f-데이터베이스-설계-%ef%b8%8f)
-- [ 주요 기능 ](#-주요-기능-)
-- [ 실행 방법 ](#%ef%b8%8f-실행-방법-%ef%b8%8f)
-- [ 참고 자료 ](#-참고-자료-)
+- [🔗 프로젝트 개요](#-프로젝트-개요-)
+- [🔗 프로젝트 구조 ](#-프로젝트-구조-)
+- [🔗 팀원 소개 ](#-팀원-소개-)
+- [🔗 데이터베이스 설계 ](#%ef%b8%8f-데이터베이스-설계-%ef%b8%8f)
+- [🔗 주요 기능 ](#-주요-기능-)
+- [🔗 실행 방법 ](#%ef%b8%8f-실행-방법-%ef%b8%8f)
+- [🔗 참고 자료 ](#-참고-자료-)
 <br><br>
 
 ### ✨ 프로젝트 개요 ✨
 
-이 프로젝트는 **MySQL**과 **JDBC**를 사용하여 CRUD 기능을 구현한 프로젝트입니다. 지니뮤직 사이트의 데이터를 기반으로, 음악 리스트 관리 및 검색, 수정 기능을 제공하며 **데이터베이스** 연동을 통해 사용자 경험을 최적화 하였습니다.
-프로젝트의 데이터 처리 및 서버 통신을 **JDBC**를 이용하여 직접 구현하였으며, **SQL 최적화**와 **트랜잭션 관리** 등 데이터 베이스 연동과 다양한 CRUD 기능을 구현하였습니다. 본 프로젝트는 **Git**을 통한 버전 관리와 **Agile 방식**으로 팀원들의 협업을 통해 진행되었습니다.
-![_- visual selection](https://github.com/user-attachments/assets/1f477548-0f44-4573-8b40-4949e8f08a95)
-<br><br>
+이 프로젝트는 **Java**와 **MySQL**을 사용하여 **MVC 패턴**을 구성하였습니다. 지니뮤직 사이트의 데이터를 기반으로 음악 검색, 수정, 삭제 등 CRUD 기능을 제공하며 **데이터베이스** 연동을 통해 사용자 경험을 최적화 하였습니다.
+프로젝트의 데이터 처리 및 서버 통신은 **JDBC**를 이용하여 직접 구현하였으며, **SQL 최적화**와 **트랜잭션 관리** 등 데이터 베이스 연동과 다양한 CRUD 기능을 구현하였습니다. 본 프로젝트는 **Git**을 통한 버전 관리와 **Agile 방식**으로 팀원들의 협업을 통해 진행되었습니다.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1f477548-0f44-4573-8b40-4949e8f08a95" width="500"/>
+</p>
 
 ### 📂 프로젝트 구조 📂
 
@@ -32,7 +34,7 @@
 │   │   ├── SongService.java
 │   │   └── SongServiceImp.java
 │   └── view
-│       └── StartView.java
+│       ├── StartView.java
 │       └── EndView.java
 └── README.md
 ```
@@ -54,10 +56,16 @@
 
 #### 테이블 구조: `song`
 
+
 지니뮤직 사이트에서 수집한 데이터를 기반으로 아래와 같은 테이블 구조를 설계했습니다.
 
-```sql
--- table 생성
+<table style="width: 100%; border: 0; table-layout: fixed;">
+  <tr>
+    <td style="width: 50%; text-align: center; vertical-align: top;">
+      <img src="https://github.com/user-attachments/assets/883d8b45-e592-48e4-ab84-0772c8fe45bd" width="80%" />
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <pre style="white-space: pre-wrap; word-wrap: break-word;">
 CREATE TABLE song (
        song_id INT AUTO_INCREMENT PRIMARY KEY,
        artist VARCHAR(30) NOT NULL,
@@ -66,8 +74,10 @@ CREATE TABLE song (
        art_type TINYINT,
        url VARCHAR(100)
 );
-
-<br><br>
+      </pre>
+    </td>
+  </tr>
+</table>
 
 #### 데이터 예시 (INSERT 문)
 
@@ -88,24 +98,43 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 #### 1. 전체 노래 조회
 
 모든 노래 정보를 조회하여 콘솔에 출력합니다.
+<br>
+(💻 출력)
+<br>
+<img src="https://github.com/user-attachments/assets/dc045074-606c-41e3-a319-ac33213b308e" width="700"/>
+
 
 #### 2. 특정 노래 조회
 
 입력된 제목에 해당하는 노래 정보를 조회합니다.
+<br>
+(💻 출력)
+<br>
+<img src="https://github.com/user-attachments/assets/f0c889d9-3e6f-415e-9ae8-9bc210fb3ff4" width="700"/>
 
 #### 3. 새로운 노래 추가
 
 새로운 노래 정보를 데이터베이스에 추가합니다.
+<br>
+(💻 출력)
+<br>
+<img src="https://github.com/user-attachments/assets/d2e2f349-1994-4f2a-82dc-38661e8ecef0" width="700"/>
 
 #### 4. URL 수정
 
 입력된 노래 제목을 기준으로 URL을 수정합니다.
+<br>
+(💻 출력)
+<br>
+<img src="https://github.com/user-attachments/assets/6d9523c2-b62a-454a-b212-66ff64d357e1" width="700"/>
 
 #### 5. 노래 삭제
 
 입력된 제목과 가수를 기준으로 노래 정보를 삭제합니다.
-
-
+<br>
+(💻 출력)
+<br>
+<img src="https://github.com/user-attachments/assets/7869db0d-1fd2-4d58-a208-8e291e96562c" width="500" />
 
 ---
 
