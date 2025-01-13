@@ -101,41 +101,56 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 모든 노래 정보를 조회하여 콘솔에 출력합니다.
 <br>
 (💻 출력)
-<br>
-<img src="https://github.com/user-attachments/assets/dc045074-606c-41e3-a319-ac33213b308e" width="700"/>
-
+<table>
+	<td>
+		<img src="https://github.com/user-attachments/assets/dc045074-606c-41e3-a319-ac33213b308e" width="700"/>
+	</td>
+</table>
 
 #### 2. 특정 노래 조회
 
 입력된 제목에 해당하는 노래 정보를 조회합니다.
 <br>
 (💻 출력)
-<br>
+<table>
+	<td>
 <img src="https://github.com/user-attachments/assets/f0c889d9-3e6f-415e-9ae8-9bc210fb3ff4" width="700"/>
+	</td>
+</table>
 
 #### 3. 새로운 노래 추가
 
 새로운 노래 정보를 데이터베이스에 추가합니다.
 <br>
 (💻 출력)
-<br>
+<table>
+	<td>
 <img src="https://github.com/user-attachments/assets/d2e2f349-1994-4f2a-82dc-38661e8ecef0" width="700"/>
+	</td>
+</table>
 
 #### 4. URL 수정
 
 입력된 노래 제목을 기준으로 URL을 수정합니다.
 <br>
 (💻 출력)
-<br>
+<table>
+	<td>
 <img src="https://github.com/user-attachments/assets/6d9523c2-b62a-454a-b212-66ff64d357e1" width="700"/>
+	</td>
+</table>
+
 
 #### 5. 노래 삭제
 
 입력된 제목과 가수를 기준으로 노래 정보를 삭제합니다.
 <br>
 (💻 출력)
-<br>
+<table>
+	<td>
 <img src="https://github.com/user-attachments/assets/7869db0d-1fd2-4d58-a208-8e291e96562c" width="500" />
+	</td>
+</table>
 
 ---
 
