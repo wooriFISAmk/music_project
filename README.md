@@ -50,85 +50,30 @@ INSERT INTO song (artist, song_name, genre, art_type, url) VALUES
 ---
 
 ### 🚀 주요 기능 🚀
+![🚀 주요 기능 🚀 - visual selection](https://github.com/user-attachments/assets/43ef4398-699d-461c-851d-b51e4c83b42b)
+
 
 #### 1. 전체 노래 조회
 
 모든 노래 정보를 조회하여 콘솔에 출력합니다.
 
-```java
-public static void getAllSongs() {
-		try {
-			EndView.songListView(s.getAllSongs());
-		} catch (SQLException e) {
-			e.printStackTrace();
-			EndView.showError("전체 노래 조회 오류");
-		}
-	}
-```
-
 #### 2. 특정 노래 조회
 
 입력된 제목에 해당하는 노래 정보를 조회합니다.
-
-```java
-public static void getSongsBySongName(String keyword) {
-		try {
-			EndView.songListView(s.getSongsByKeyword(keyword));
-		} catch (SQLException e) {
-			e.printStackTrace();
-			EndView.showError("키워드로 노래 검색 조회 오류");
-		}
-	}
-```
 
 #### 3. 새로운 노래 추가
 
 새로운 노래 정보를 데이터베이스에 추가합니다.
 
-```java
-public static boolean createSong(SongDTO song) {
-		boolean result = false;
-		try {
-			result = SongDAO.createSong(song);
-		} catch (SQLException s) {
-			s.printStackTrace();
-		}
-		return result;
-	}
-```
-
 #### 4. URL 수정
 
 입력된 노래 제목을 기준으로 URL을 수정합니다.
-
-```java
-public static void updateUrlBySongName(String songName, String url) {
-       		try {
-           		s.updateUrlBySongName(songName, url);
-		} catch (Exception e) {
-           		e.printStackTrace();
-          		EndView.showError("노래 수정 오류");
-       		}
-   	}
-```
 
 #### 5. 노래 삭제
 
 입력된 제목과 가수를 기준으로 노래 정보를 삭제합니다.
 
-```java
-public static boolean deleteSongBySongNameAndArtist(String songName , String artist) {
-		boolean result = false;
-		try {
-			result = s.deleteSongBySongNameAndArtist(songName, artist);
-			System.out.println("삭제 완료");
-		} catch(SQLException s) {
-			s.printStackTrace();
-			EndView.showError("노래 삭제 실패");
-		}
-		return result;
-	}
-```
+
 
 ---
 
